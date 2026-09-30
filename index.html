@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="V. Ramesh — First-year Computer Science and AI/ML student at Scaler School of Technology.">
+    <title>V. Ramesh | CS & AI/ML Student</title>
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+    --bg:#050816;
+    --bg2:#080d20;
+    --card:rgba(15,23,45,.72);
+    --card2:rgba(18,28,52,.55);
+    --text:#f5f7ff;
+    --muted:#9ca9c6;
+    --blue:#5b8cff;
+    --cyan:#35d8ff;
+    --purple:#9b6cff;
+    --border:rgba(255,255,255,.10);
+    --shadow:0 25px 80px rgba(0,0,0,.35);
+    --radius:24px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',Arial,Helvetica,sans-serif;
+    color:var(--text);
+    background:
+        radial-gradient(circle at 10% 10%,rgba(91,140,255,.16),transparent 28%),
+        radial-gradient(circle at 90% 15%,rgba(155,108,255,.14),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(53,216,255,.10),transparent 35%),
+        linear-gradient(135deg,#030511,#071027 50%,#050816);
+    background-attachment:fixed;
+    overflow-x:hidden;
+    line-height:1.7;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+    opacity:.28;
+    background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:60px 60px;
+    mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(91,140,255,.12),transparent 68%);
+    top:15%;
+    left:-180px;
+    pointer-events:none;
+    animation:floatGlow 10s ease-in-out infinite alternate;
+    z-index:-1;
+}
+
+@keyframes floatGlow{
+    from{transform:translate(0,0) scale(1)}
+    to{transform:translate(80px,120px) scale(1.25)}
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+.section{
+    position:relative;
+    padding:120px 0;
+    overflow:hidden;
+}
+
+.section::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:radial-gradient(circle,rgba(91,140,255,.10),transparent 70%);
+    right:-160px;
+    top:30%;
+    pointer-events:none;
+}
+
+
+
+.site-header{
+    position:fixed;
+    width:100%;
+    top:0;
+    left:0;
+    z-index:1000;
+    padding:18px 0;
+    background:rgba(5,8,22,.68);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.navbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+.brand-mark{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    color:white;
+    background:linear-gradient(135deg,var(--blue),var(--purple));
+    box-shadow:0 0 30px rgba(91,140,255,.35);
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.nav-links a{
+    padding:10px 16px;
+    color:#b9c3da;
+    font-size:14px;
+    border-radius:10px;
+    transition:.3s ease;
+}
+
+.nav-links a:hover{
+    color:white;
+    background:rgba(255,255,255,.07);
+}
+
+.nav-links .nav-cta{
+    margin-left:8px;
+    color:white;
+    background:linear-gradient(135deg,var(--blue),var(--purple));
+    box-shadow:0 8px 25px rgba(91,140,255,.22);
+}
+
+.nav-toggle{
+    display:none;
+}
+
+.nav-toggle-label{
+    display:none;
+}
+
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding-top:150px;
+    background:
+        radial-gradient(circle at 75% 40%,rgba(91,140,255,.15),transparent 30%),
+        radial-gradient(circle at 85% 70%,rgba(155,108,255,.12),transparent 25%);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border:1px solid rgba(91,140,255,.08);
+    border-radius:50%;
+    right:-250px;
+    top:10%;
+    box-shadow:0 0 0 80px rgba(91,140,255,.015),
+               0 0 0 160px rgba(91,140,255,.012);
+    animation:rotate 30s linear infinite;
+}
+
+@keyframes rotate{
+    to{transform:rotate(360deg)}
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:70px;
+    align-items:center;
+}
+
+.eyebrow{
+    color:var(--cyan);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2.5px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:'Space Grotesk',Inter,Arial,Helvetica,sans-serif;
+    font-size:clamp(48px,7vw,82px);
+    line-height:1;
+    letter-spacing:-3px;
+    margin-bottom:18px;
+}
+
+.hero h1 span,
+.section-heading h2 span,
+.contact-copy h2 span{
+    background:linear-gradient(90deg,var(--blue),var(--cyan),var(--purple));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.hero-role{
+    color:#dce5ff;
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:18px;
+}
+
+.hero-text{
+    max-width:620px;
+    color:var(--muted);
+    font-size:16px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin:34px 0;
+}
+
+.button{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 22px;
+    border-radius:14px;
+    font-weight:700;
+    transition:.35s ease;
+}
+
+.button-primary{
+    color:white;
+    background:linear-gradient(135deg,var(--blue),var(--purple));
+    box-shadow:0 15px 35px rgba(91,140,255,.25);
+}
+
+.button-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 45px rgba(91,140,255,.4);
+}
+
+.button-secondary{
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    color:#dce5ff;
+}
+
+.button-secondary:hover{
+    transform:translateY(-4px);
+    background:rgba(255,255,255,.08);
+}
+
+.hero-meta{
+    display:flex;
+    gap:55px;
+    margin-top:38px;
+}
+
+.meta-label{
+    display:block;
+    color:#71809f;
+    font-size:10px;
+    letter-spacing:2px;
+    margin-bottom:5px;
+}
+
+.hero-meta strong{
+    font-size:14px;
+}
+
+
+
+.hero-visual{
+    min-height:550px;
+    position:relative;
+    display:grid;
+    place-items:center;
+}
+
+.profile-card{
+    width:min(370px,90%);
+    padding:25px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:28px;
+    background:
+        linear-gradient(145deg,rgba(22,34,65,.88),rgba(7,13,30,.82));
+    box-shadow:var(--shadow),0 0 80px rgba(91,140,255,.13);
+    backdrop-filter:blur(20px);
+    transform:rotate(2deg);
+    transition:.5s ease;
+    z-index:2;
+}
+
+.profile-card:hover{
+    transform:rotate(0deg) translateY(-10px);
+}
+
+.profile-top{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#8795b5;
+    font-size:11px;
+    padding-bottom:20px;
+    border-bottom:1px solid var(--border);
+}
+
+.status-dot{
+    width:8px;
+    height:8px;
+    background:#42e89d;
+    border-radius:50%;
+    box-shadow:0 0 12px #42e89d;
+}
+
+.window-dots{
+    margin-left:auto;
+}
+
+.avatar{
+    width:115px;
+    height:115px;
+    display:grid;
+    place-items:center;
+    margin:30px auto 20px;
+    border-radius:50%;
+    font-family:'Space Grotesk',Inter,Arial,Helvetica,sans-serif;
+    font-size:36px;
+    font-weight:700;
+    background:linear-gradient(135deg,var(--blue),var(--purple));
+    box-shadow:
+        0 0 0 8px rgba(91,140,255,.08),
+        0 0 60px rgba(91,140,255,.35);
+}
+
+.profile-name{
+    text-align:center;
+    font-family:'Space Grotesk',Inter,Arial,Helvetica,sans-serif;
+    font-size:25px;
+    font-weight:700;
+}
+
+.profile-title{
+    text-align:center;
+    color:var(--cyan);
+    font-size:12px;
+    margin-top:4px;
+}
+
+.mini-terminal{
+    margin-top:25px;
+    padding:20px;
+    border-radius:16px;
+    background:#030611;
+    border:1px solid rgba(255,255,255,.07);
+    font-family:monospace;
+    font-size:12px;
+}
+
+.mini-terminal p{
+    margin:5px 0;
+    color:#aebbd5;
+}
+
+.mini-terminal p span{
+    color:#5b8cff;
+}
+
+.terminal-answer{
+    color:#55e6aa!important;
+    padding-left:15px;
+}
+
+.orbit{
+    position:absolute;
+    border:1px solid rgba(91,140,255,.13);
+    border-radius:50%;
+    animation:orbit 18s linear infinite;
+}
+
+.orbit-one{
+    width:500px;
+    height:500px;
+}
+
+.orbit-two{
+    width:380px;
+    height:380px;
+    border-color:rgba(155,108,255,.14);
+    animation-duration:13s;
+    animation-direction:reverse;
+}
+
+@keyframes orbit{
+    to{transform:rotate(360deg)}
+}
+
+.floating-tag{
+    position:absolute;
+    padding:10px 15px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:12px;
+    background:rgba(12,20,40,.8);
+    backdrop-filter:blur(12px);
+    font-size:11px;
+    font-weight:700;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    animation:tagFloat 4s ease-in-out infinite;
+}
+
+.tag-html{top:13%;left:3%;color:#ff8a65}
+.tag-css{right:4%;top:24%;color:#63a4ff;animation-delay:1s}
+.tag-ai{right:7%;bottom:17%;color:#c196ff;animation-delay:2s}
+
+@keyframes tagFloat{
+    50%{transform:translateY(-12px)}
+}
+
+
+
+.section-heading{
+    margin-bottom:60px;
+}
+
+.section-heading h2,
+.contact-copy h2{
+    font-family:'Space Grotesk',Inter,Arial,Helvetica,sans-serif;
+    font-size:clamp(38px,5vw,60px);
+    line-height:1.05;
+    letter-spacing:-2px;
+}
+
+.split-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:30px;
+}
+
+.heading-note{
+    max-width:360px;
+    color:var(--muted);
+    font-size:14px;
+}
+
+
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1.4fr .6fr;
+    gap:60px;
+}
+
+.about-main{
+    font-size:17px;
+    color:#aab6cf;
+}
+
+.about-main p+p{
+    margin-top:25px;
+}
+
+.about-main .lead{
+    font-size:21px;
+    color:#e1e7f5;
+}
+
+.about-note{
+    position:relative;
+    padding:35px;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));
+    box-shadow:var(--shadow);
+}
+
+.note-number{
+    display:block;
+    color:var(--cyan);
+    font-size:50px;
+    line-height:1;
+}
+
+.note-title{
+    font-weight:800;
+    margin:20px 0 8px;
+}
+
+.note-text{
+    color:var(--muted);
+    font-size:14px;
+}
+
+
+
+.section-dark{
+    background:
+        linear-gradient(rgba(5,8,22,.82),rgba(5,8,22,.94)),
+        radial-gradient(circle at 50% 0%,rgba(91,140,255,.15),transparent 40%);
+    border-top:1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.skills-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.skill-card{
+    padding:30px 25px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.035);
+    transition:.4s ease;
+    position:relative;
+    overflow:hidden;
+}
+
+.skill-card::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:rgba(91,140,255,.08);
+    filter:blur(20px);
+    top:-50px;
+    right:-50px;
+}
+
+.skill-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(91,140,255,.4);
+    background:rgba(255,255,255,.06);
+    box-shadow:0 25px 50px rgba(0,0,0,.25);
+}
+
+.featured-skill{
+    border-color:rgba(91,140,255,.3);
+}
+
+.skill-icon{
+    width:55px;
+    height:55px;
+    display:grid;
+    place-items:center;
+    margin-bottom:25px;
+    border-radius:15px;
+    color:#fff;
+    font-weight:800;
+    background:linear-gradient(135deg,rgba(91,140,255,.2),rgba(155,108,255,.2));
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.skill-card h3{
+    margin-bottom:10px;
+    font-family:'Space Grotesk',Inter,Arial,Helvetica,sans-serif;
+    font-size:21px;
+}
+
+.skill-card p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+.skill-line{
+    height:2px;
+    width:45px;
+    margin:22px 0 13px;
+    background:linear-gradient(90deg,var(--blue),var(--cyan));
+}
+
+.skill-level{
+    color:#71809f;
+    font-size:9px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.tech-strip{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+    margin-top:45px;
+    padding-top:30px;
+    border-top:1px solid var(--border);
+}
+
+.tech-strip>span{
+    color:#71809f;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+.tech-pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
+}
+
+.tech-pills span,
+.project-tags span{
+    padding:7px 11px;
+    border-radius:999px;
+    background:rgba(255,255,255,.05);
+    border:1px solid var(--border);
+    color:#aab6cf;
+    font-size:11px;
+}
+
+
+
+.projects-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.project-card{
+    overflow:hidden;
+    border-radius:var(--radius);
+    border:1px solid var(--border);
+    background:rgba(13,21,41,.68);
+    box-shadow:0 20px 60px rgba(0,0,0,.2);
+    transition:.45s ease;
+}
+
+.project-card:hover{
+    transform:translateY(-10px);
+    border-color:rgba(91,140,255,.3);
+    box-shadow:0 30px 70px rgba(0,0,0,.3);
+}
+
+.project-large{
+    grid-column:span 2;
+}
+
+.project-preview{
+    height:250px;
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 50% 50%,rgba(91,140,255,.2),transparent 50%),
+        #080e21;
+}
+
+.preview-portfolio{
+    padding:35px;
+}
+
+.preview-browser{
+    height:22px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.preview-browser span{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#65738f;
+}
+
+.preview-content{
+    margin:30px auto;
+    width:75%;
+    padding:25px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:15px;
+    background:rgba(255,255,255,.035);
+}
+
+.preview-line{
+    height:5px;
+    border-radius:20px;
+    background:rgba(255,255,255,.14);
+    margin-bottom:10px;
+}
+
+.preview-line.short{width:30%}
+.preview-line.medium{width:50%}
+
+.preview-title{
+    font-family:'Space Grotesk',Inter,Arial,Helvetica,sans-serif;
+    font-size:24px;
+    font-weight:700;
+    margin:15px 0;
+}
+
+.preview-boxes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-top:20px;
+}
+
+.preview-boxes div{
+    height:50px;
+    border-radius:8px;
+    background:linear-gradient(135deg,rgba(91,140,255,.3),rgba(155,108,255,.15));
+}
+
+.preview-grid{
+    display:grid;
+    place-items:center;
+}
+
+.grid-window{
+    width:65%;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    transform:rotate(-4deg);
+}
+
+.grid-window div{
+    height:55px;
+    border-radius:10px;
+    background:linear-gradient(135deg,rgba(91,140,255,.4),rgba(53,216,255,.12));
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.g1{grid-row:span 2}
+.g4{grid-column:span 2}
+
+.preview-motion{
+    display:grid;
+    place-items:center;
+}
+
+.motion-orb{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff, var(--cyan),var(--purple));
+    box-shadow:0 0 80px rgba(91,140,255,.6);
+    animation:pulseOrb 4s ease-in-out infinite;
+}
+
+.motion-ring{
+    position:absolute;
+    width:170px;
+    height:170px;
+    border:1px solid rgba(91,140,255,.5);
+    border-radius:50%;
+    animation:rotate 8s linear infinite;
+}
+
+.motion-label{
+    position:absolute;
+    color:white;
+    text-align:center;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:800;
+}
+
+@keyframes pulseOrb{
+    50%{transform:scale(1.15)}
+}
+
+.project-body{
+    padding:27px;
+}
+
+.project-topline{
+    display:flex;
+    justify-content:space-between;
+    color:#71809f;
+    font-size:10px;
+    letter-spacing:1.5px;
+}
+
+.project-body h3{
+    font-family:'Space Grotesk',Inter,Arial,Helvetica,sans-serif;
+    font-size:25px;
+    margin:14px 0 9px;
+}
+
+.project-body p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.project-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:20px 0;
+}
+
+.text-link{
+    display:inline-flex;
+    gap:8px;
+    color:#8fb0ff;
+    font-size:13px;
+    font-weight:700;
+    transition:.3s;
+}
+
+.text-link:hover{
+    color:white;
+    transform:translateX(5px);
+}
+
+
+
+.section-light{
+    background:
+        radial-gradient(circle at 80% 30%,rgba(91,140,255,.08),transparent 30%),
+        rgba(255,255,255,.015);
+}
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+    left:15px;
+    top:0;
+    bottom:0;
+    width:1px;
+    background:linear-gradient(var(--blue),transparent);
+}
+
+.timeline-item{
+    display:grid;
+    grid-template-columns:50px 150px 1fr;
+    gap:20px;
+    position:relative;
+    margin-bottom:55px;
+}
+
+.timeline-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    margin-top:7px;
+    background:var(--blue);
+    box-shadow:0 0 20px rgba(91,140,255,.8);
+    z-index:2;
+}
+
+.timeline-year{
+    color:#7584a3;
+    font-size:11px;
+    letter-spacing:1px;
+    font-weight:700;
+}
+
+.timeline-content{
+    padding:25px;
+    border-radius:18px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.035);
+    transition:.35s;
+}
+
+.timeline-content:hover{
+    transform:translateX(8px);
+    background:rgba(255,255,255,.055);
+}
+
+.timeline-content h3{
+    font-family:'Space Grotesk',Inter,Arial,Helvetica,sans-serif;
+    font-size:21px;
+}
+
+.timeline-role{
+    color:var(--cyan)!important;
+    font-size:12px!important;
+    margin:4px 0 12px;
+}
+
+.timeline-content p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+
+
+.contact-section{
+    background:
+        radial-gradient(circle at 15% 50%,rgba(91,140,255,.15),transparent 30%),
+        radial-gradient(circle at 90% 20%,rgba(155,108,255,.13),transparent 28%),
+        #040713;
+}
+
+.contact-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:start;
+}
+
+.contact-copy>p:not(.eyebrow){
+    max-width:520px;
+    color:var(--muted);
+    margin-top:25px;
+}
+
+.contact-links{
+    display:grid;
+    gap:12px;
+    margin-top:35px;
+}
+
+.contact-link{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    padding:15px;
+    border-radius:15px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.035);
+    transition:.3s;
+}
+
+.contact-link:hover{
+    transform:translateX(7px);
+    border-color:rgba(91,140,255,.35);
+}
+
+.contact-icon{
+    width:42px;
+    height:42px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:rgba(91,140,255,.12);
+    color:var(--cyan);
+}
+
+.contact-link small{
+    display:block;
+    color:#71809f;
+    font-size:9px;
+    letter-spacing:1.5px;
+}
+
+.contact-link strong{
+    font-size:13px;
+}
+
+.contact-form{
+    padding:35px;
+    border:1px solid var(--border);
+    border-radius:25px;
+    background:rgba(255,255,255,.04);
+    backdrop-filter:blur(15px);
+    box-shadow:var(--shadow);
+}
+
+.form-row{
+    margin-bottom:20px;
+}
+
+.form-row label{
+    display:block;
+    color:#cbd5eb;
+    font-size:12px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.form-row input,
+.form-row textarea{
+    width:100%;
+    border:1px solid rgba(255,255,255,.1);
+    outline:none;
+    border-radius:12px;
+    padding:14px 15px;
+    color:white;
+    background:rgba(0,0,0,.2);
+    font:inherit;
+    transition:.3s;
+    resize:vertical;
+}
+
+.form-row input:focus,
+.form-row textarea:focus{
+    border-color:var(--blue);
+    box-shadow:0 0 0 3px rgba(91,140,255,.1);
+}
+
+.form-row input::placeholder,
+.form-row textarea::placeholder{
+    color:#56627b;
+}
+
+.form-button{
+    border:0;
+    cursor:pointer;
+    font:inherit;
+}
+
+.form-note{
+    margin-top:15px;
+    color:#62708c;
+    font-size:10px;
+}
+
+
+
+.site-footer{
+    padding:30px 0;
+    border-top:1px solid var(--border);
+    background:#03050d;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    color:#64718d;
+    font-size:11px;
+}
+
+.footer-inner span{
+    color:#ff6584;
+}
+
+.footer-inner a{
+    color:#9aa8c4;
+    transition:.3s;
+}
+
+.footer-inner a:hover{
+    color:white;
+}
+
+
+
+::selection{
+    background:var(--blue);
+    color:white;
+}
+
+
+
+::-webkit-scrollbar{
+    width:9px;
+}
+
+::-webkit-scrollbar-track{
+    background:#03050d;
+}
+
+::-webkit-scrollbar-thumb{
+    border-radius:20px;
+    background:linear-gradient(var(--blue),var(--purple));
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:linear-gradient(var(--cyan),var(--blue));
+}
+
+
+
+@media(max-width:950px){
+
+    .hero-grid,
+    .contact-wrap{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero-copy{
+        text-align:center;
+    }
+
+    .hero-text{
+        margin:auto;
+    }
+
+    .hero-actions,
+    .hero-meta{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        min-height:500px;
+    }
+
+    .skills-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-copy{
+        text-align:center;
+    }
+
+    .contact-copy>p:not(.eyebrow){
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .contact-links{
+        max-width:500px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+
+@media(max-width:700px){
+
+    .site-header{
+        padding:12px 0;
+    }
+
+    .nav-toggle-label{
+        display:flex;
+        flex-direction:column;
+        gap:5px;
+        cursor:pointer;
+        padding:10px;
+    }
+
+    .nav-toggle-label span{
+        width:25px;
+        height:2px;
+        background:white;
+        transition:.3s;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:70px;
+        left:4%;
+        right:4%;
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        padding:15px;
+        border:1px solid var(--border);
+        border-radius:18px;
+        background:rgba(5,8,22,.96);
+        backdrop-filter:blur(20px);
+        opacity:0;
+        visibility:hidden;
+        transform:translateY(-15px);
+        transition:.3s;
+    }
+
+    .nav-toggle:checked~.nav-links{
+        opacity:1;
+        visibility:visible;
+        transform:translateY(0);
+    }
+
+    .nav-links a{
+        text-align:center;
+    }
+
+    .nav-links .nav-cta{
+        margin-left:0;
+    }
+
+    .section{
+        padding:85px 0;
+    }
+
+    .hero h1{
+        font-size:48px;
+        letter-spacing:-2px;
+    }
+
+    .hero-role{
+        font-size:18px;
+    }
+
+    .hero-meta{
+        gap:25px;
+        flex-wrap:wrap;
+    }
+
+    .hero-visual{
+        min-height:420px;
+    }
+
+    .profile-card{
+        width:310px;
+    }
+
+    .orbit-one{
+        width:380px;
+        height:380px;
+    }
+
+    .orbit-two{
+        width:300px;
+        height:300px;
+    }
+
+    .floating-tag{
+        display:none;
+    }
+
+    .split-heading{
+        display:block;
+    }
+
+    .heading-note{
+        margin-top:20px;
+    }
+
+    .skills-grid,
+    .projects-grid{
+        grid-template-columns:1fr;
+    }
+
+    .project-large{
+        grid-column:auto;
+    }
+
+    .timeline-item{
+        grid-template-columns:35px 1fr;
+    }
+
+    .timeline-year{
+        grid-column:2;
+        grid-row:1;
+        margin-bottom:-10px;
+    }
+
+    .timeline-content{
+        grid-column:2;
+        grid-row:2;
+    }
+
+    .timeline-dot{
+        grid-row:1 / span 2;
+    }
+
+    .tech-strip{
+        display:block;
+    }
+
+    .tech-pills{
+        margin-top:15px;
+    }
+
+    .contact-form{
+        padding:23px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+@media(max-width:430px){
+
+    .brand{
+        font-size:12px;
+    }
+
+    .brand-mark{
+        width:36px;
+        height:36px;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero-actions{
+        flex-direction:column;
+    }
+
+    .button{
+        justify-content:center;
+    }
+
+    .profile-card{
+        width:285px;
+    }
+
+    .avatar{
+        width:90px;
+        height:90px;
+        font-size:28px;
+    }
+
+    .section-heading h2,
+    .contact-copy h2{
+        font-size:38px;
+    }
+}
+
+
+
+@media(prefers-reduced-motion:no-preference){
+
+    .hero-copy{
+        animation:fadeUp .9s ease both;
+    }
+
+    .hero-visual{
+        animation:fadeUp 1.1s .15s ease both;
+    }
+
+    .section-heading{
+        animation:fadeUp .8s ease both;
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}</style>
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar container" aria-label="Main navigation">
+            <a class="brand" href="#home" aria-label="V. Ramesh home">
+                <span class="brand-mark">VR</span>
+                <span>V. RAMESH</span>
+            </a>
+
+            <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Open navigation">
+            <label class="nav-toggle-label" for="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a class="nav-cta" href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero section" id="home">
+            <div class="hero-grid container">
+                <div class="hero-copy">
+                    <p class="eyebrow">FIRST-YEAR STUDENT • BUILDER • LEARNER</p>
+                    <h1>Hi, I'm <span>V. Ramesh</span>.</h1>
+                    <p class="hero-role">Computer Science & AI/ML Student</p>
+                    <p class="hero-text">
+                        I’m a first-year student at Scaler School of Technology, learning by building
+                        projects, experimenting with the web, and exploring the foundations of
+                        computer science and artificial intelligence.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects">View My Work <span>↘</span></a>
+                        <a class="button button-secondary" href="#contact">Let's Connect <span>→</span></a>
+                    </div>
+
+                    <div class="hero-meta">
+                        <div>
+                            <span class="meta-label">CURRENTLY</span>
+                            <strong>Learning & Building</strong>
+                        </div>
+                        <div>
+                            <span class="meta-label">FOCUS</span>
+                            <strong>Web + CS + AI/ML</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual" aria-label="Developer profile visual">
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="profile-card">
+                        <div class="profile-top">
+                            <span class="status-dot"></span>
+                            <span>student.profile</span>
+                            <span class="window-dots">•••</span>
+                        </div>
+
+                        <div class="avatar">VR</div>
+
+                        <div class="profile-name">V. Ramesh</div>
+                        <div class="profile-title">CS + AI/ML</div>
+
+                        <div class="mini-terminal">
+                            <p><span>$</span> whoami</p>
+                            <p class="terminal-answer">first_year_builder</p>
+                            <p><span>$</span> stack</p>
+                            <p class="terminal-answer">HTML • CSS • Git</p>
+                            <p><span>$</span> mindset</p>
+                            <p class="terminal-answer">learn → build → improve</p>
+                        </div>
+                    </div>
+
+                    <div class="floating-tag tag-html">HTML</div>
+                    <div class="floating-tag tag-css">CSS</div>
+                    <div class="floating-tag tag-ai">AI / ML</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">01 / ABOUT</p>
+                    <h2>Building my foundation,<br><span>one project at a time.</span></h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-main">
+                        <p class="lead">
+                            I’m currently studying Computer Science and AI/ML at Scaler School of Technology.
+                            As a first-year student, I’m focused on developing strong fundamentals and turning
+                            what I learn into practical projects.
+                        </p>
+                        <p>
+                            I enjoy understanding how things work, creating clean user interfaces with HTML
+                            and CSS, and gradually exploring the bigger picture of software development and
+                            artificial intelligence.
+                        </p>
+                    </div>
+
+                    <aside class="about-note">
+                        <span class="note-number">+</span>
+                        <p class="note-title">Learning philosophy</p>
+                        <p class="note-text">
+                            Start simple. Build something real. Debug it. Learn from it. Repeat.
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-dark" id="skills">
+            <div class="container">
+                <div class="section-heading split-heading">
+                    <div>
+                        <p class="eyebrow">02 / SKILLS</p>
+                        <h2>Tools I’m using to <span>build.</span></h2>
+                    </div>
+                    <p class="heading-note">Growing my stack through coursework, practice, and projects.</p>
+                </div>
+
+                <div class="skills-grid">
+                    <article class="skill-card featured-skill">
+                        <div class="skill-icon">&lt;/&gt;</div>
+                        <h3>HTML</h3>
+                        <p>Semantic structure, accessible content, forms, navigation, and clean page organization.</p>
+                        <div class="skill-line"></div>
+                        <span class="skill-level">FOUNDATION</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">{ }</div>
+                        <h3>CSS</h3>
+                        <p>Flexbox, Grid, responsive layouts, box model, transitions, transforms, and animations.</p>
+                        <div class="skill-line"></div>
+                        <span class="skill-level">FOUNDATION</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">⌘</div>
+                        <h3>Git & GitHub</h3>
+                        <p>Learning version control, organizing repositories, and tracking project changes.</p>
+                        <div class="skill-line"></div>
+                        <span class="skill-level">LEARNING</span>
+                    </article>
+
+                    <article class="skill-card">
+                        <div class="skill-icon">AI</div>
+                        <h3>AI / ML</h3>
+                        <p>Exploring core concepts as part of my Computer Science and AI/ML journey.</p>
+                        <div class="skill-line"></div>
+                        <span class="skill-level">EXPLORING</span>
+                    </article>
+                </div>
+
+                <div class="tech-strip">
+                    <span>CURRENTLY EXPLORING</span>
+                    <div class="tech-pills">
+                        <span>Problem Solving</span>
+                        <span>Responsive Design</span>
+                        <span>Algorithms</span>
+                        <span>AI / ML Fundamentals</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="projects">
+            <div class="container">
+                <div class="section-heading split-heading">
+                    <div>
+                        <p class="eyebrow">03 / PROJECTS</p>
+                        <h2>Selected <span>builds.</span></h2>
+                    </div>
+                    <p class="heading-note">Learning projects built to practice layout, responsiveness, and CSS interaction.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <article class="project-card project-large">
+                        <div class="project-preview preview-portfolio">
+                            <div class="preview-browser">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <div class="preview-content">
+                                <div class="preview-line short"></div>
+                                <div class="preview-title">V. RAMESH</div>
+                                <div class="preview-line medium"></div>
+                                <div class="preview-boxes">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span>01</span>
+                                <span>HTML + CSS</span>
+                            </div>
+                            <h3>Personal Portfolio</h3>
+                            <p>
+                                A responsive portfolio designed to present my introduction, skills, projects,
+                                education, and contact information in one clean interface.
+                            </p>
+                            <div class="project-tags">
+                                <span>Flexbox</span>
+                                <span>Grid</span>
+                                <span>Responsive</span>
+                            </div>
+                            <a class="text-link" href="#contact">Discuss this project <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-preview preview-grid">
+                            <div class="grid-window">
+                                <div class="g1"></div>
+                                <div class="g2"></div>
+                                <div class="g3"></div>
+                                <div class="g4"></div>
+                                <div class="g5"></div>
+                                <div class="g6"></div>
+                            </div>
+                        </div>
+
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span>02</span>
+                                <span>CSS GRID</span>
+                            </div>
+                            <h3>Responsive Layout Lab</h3>
+                            <p>
+                                A practice build focused on CSS Grid, card layouts, spacing, and adapting
+                                the interface across desktop, tablet, and mobile screens.
+                            </p>
+                            <div class="project-tags">
+                                <span>CSS Grid</span>
+                                <span>Media Queries</span>
+                            </div>
+                            <a class="text-link" href="#skills">See technologies <span>→</span></a>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-preview preview-motion">
+                            <div class="motion-orb"></div>
+                            <div class="motion-ring"></div>
+                            <div class="motion-label">CSS<br>ANIMATION</div>
+                        </div>
+
+                        <div class="project-body">
+                            <div class="project-topline">
+                                <span>03</span>
+                                <span>CSS MOTION</span>
+                            </div>
+                            <h3>CSS Animation Lab</h3>
+                            <p>
+                                A visual experiment using transitions, transforms, hover states, and keyframe
+                                animation without JavaScript.
+                            </p>
+                            <div class="project-tags">
+                                <span>Keyframes</span>
+                                <span>Transitions</span>
+                                <span>Transform</span>
+                            </div>
+                            <a class="text-link" href="#contact">Talk about the build <span>→</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-light" id="education">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">04 / EDUCATION</p>
+                    <h2>Where I’m <span>learning.</span></h2>
+                </div>
+
+                <div class="timeline">
+                    <article class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">2026 — PRESENT</div>
+                        <div class="timeline-content">
+                            <h3>Scaler School of Technology</h3>
+                            <p class="timeline-role">Computer Science & AI/ML • First Year</p>
+                            <p>
+                                Building strong foundations in computer science while learning through practical
+                                projects, problem solving, and hands-on development.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-year">NOW</div>
+                        <div class="timeline-content">
+                            <h3>Web Development Journey</h3>
+                            <p class="timeline-role">HTML • CSS • Responsive Design</p>
+                            <p>
+                                Practicing semantic HTML, the CSS box model, Flexbox, Grid, responsive design,
+                                transitions, and animations.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section contact-section" id="contact">
+            <div class="container contact-wrap">
+                <div class="contact-copy">
+                    <p class="eyebrow">05 / CONTACT</p>
+                    <h2>Have an idea?<br><span>Let’s build.</span></h2>
+                    <p>
+                        I’m always interested in learning, building, and connecting with people who enjoy
+                        technology and creative problem solving.
+                    </p>
+
+                    <div class="contact-links">
+                        <a href="#contact" class="contact-link">
+                            <span class="contact-icon">@</span>
+                            <span>
+                                <small>EMAIL</small>
+                                <strong><a href="mailto:your@email.com">your@email.com</a></strong>
+                            </span>
+                        </a>
+
+                        <a href="#projects" class="contact-link">
+                            <span class="contact-icon">↗</span>
+                            <span>
+                                <small>WORK</small>
+                                <strong>View my projects</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" type="text" placeholder="Your name" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your idea..." required></textarea>
+                    </div>
+
+                    <button class="button button-primary form-button" type="submit">
+                        Send Message <span>→</span>
+                    </button>
+                    <p class="form-note">Submitting opens your email app with the message ready to send.</p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© 2026 V. Ramesh</p>
+            <p>Built with HTML & CSS <span aria-hidden="true">♥</span></p>
+            <a href="#home">Back to top ↑</a>
+        </div>
+    </footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const subject = encodeURIComponent("Portfolio Contact from " + name);
+    const body = encodeURIComponent(
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n\n" +
+        "Message:\n" + message
+    );
+
+    window.location.href = "mailto:your@email.com?subject=" + subject + "&body=" + body;
+});
+</script>
+
+</body>
+</html>
